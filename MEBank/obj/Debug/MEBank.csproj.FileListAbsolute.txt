@@ -1,0 +1,16 @@
+D:\source\repos\WinForms\MEBank\MEBank\bin\Debug\MEBank.exe.config
+D:\source\repos\WinForms\MEBank\MEBank\bin\Debug\MEBank.exe
+D:\source\repos\WinForms\MEBank\MEBank\bin\Debug\MEBank.pdb
+D:\source\repos\WinForms\MEBank\MEBank\obj\Debug\MEBank.csprojAssemblyReference.cache
+D:\source\repos\WinForms\MEBank\MEBank\obj\Debug\MEBank.Login.resources
+D:\source\repos\WinForms\MEBank\MEBank\obj\Debug\MEBank.Main.resources
+D:\source\repos\WinForms\MEBank\MEBank\obj\Debug\MEBank.Properties.Resources.resources
+D:\source\repos\WinForms\MEBank\MEBank\obj\Debug\MEBank.csproj.GenerateResource.cache
+D:\source\repos\WinForms\MEBank\MEBank\obj\Debug\MEBank.exe
+D:\source\repos\WinForms\MEBank\MEBank\obj\Debug\MEBank.pdb
+D:\source\repos\WinForms\MEBank\MEBank\obj\Debug\MEBank.OpenAccount.resources
+D:\source\repos\WinForms\MEBank\MEBank\obj\Debug\MEBank.Profile.resources
+D:\source\repos\WinForms\MEBank\MEBank\obj\Debug\MEBank.Register.resources
+D:\source\repos\WinForms\MEBank\MEBank\obj\Debug\MEBank.RegisterIMEBank.resources
+D:\source\repos\WinForms\MEBank\MEBank\obj\Debug\MEBank.Transfer.resources
+D:\source\repos\WinForms\MEBank\MEBank\obj\Debug\MEBank.Deposit.resources
