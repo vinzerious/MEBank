@@ -37,6 +37,7 @@
             this.btnRegisterBankOfficer = new System.Windows.Forms.Button();
             this.btnRegisterCustomer = new System.Windows.Forms.Button();
             this.btnTransfer = new System.Windows.Forms.Button();
+            this.btnWithdraw = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblBrand
@@ -138,11 +139,24 @@
             this.btnTransfer.UseVisualStyleBackColor = true;
             this.btnTransfer.Visible = false;
             this.btnTransfer.Click += new System.EventHandler(this.fnTransfer);
-            // 
+            //
+            // btnWithdraw
+            //
+            this.btnWithdraw.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWithdraw.Location = new System.Drawing.Point(226, 391);
+            this.btnWithdraw.Name = "btnWithdraw";
+            this.btnWithdraw.Size = new System.Drawing.Size(161, 40);
+            this.btnWithdraw.TabIndex = 22;
+            this.btnWithdraw.Text = "Withdraw";
+            this.btnWithdraw.UseVisualStyleBackColor = true;
+            this.btnWithdraw.Visible = false;
+            this.btnWithdraw.Click += new System.EventHandler(this.fnWithdraw);
+            //
             // Profile
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnWithdraw);
             this.Controls.Add(this.btnTransfer);
             this.Controls.Add(this.btnRegisterCustomer);
             this.Controls.Add(this.btnRegisterBankOfficer);
@@ -170,5 +184,6 @@
         private System.Windows.Forms.Button btnRegisterBankOfficer;
         private System.Windows.Forms.Button btnRegisterCustomer;
         private System.Windows.Forms.Button btnTransfer;
+        private System.Windows.Forms.Button btnWithdraw;
     }
 }

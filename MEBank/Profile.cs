@@ -34,6 +34,7 @@ namespace MEBank
             else if (AccountType.Equals("Customer"))
             {
                 btnTransfer.Visible = true;
+                btnWithdraw.Visible = true;
                 btnDeposit.Visible = false;
             }
 
@@ -77,6 +78,13 @@ namespace MEBank
         private void fnDeposit(object sender, EventArgs e)
         {
             Deposit screen = new Deposit(data);
+            this.Hide();
+            this.Parent.Controls.Add(screen);
+        }
+
+        private void fnWithdraw(object sender, EventArgs e)
+        {
+            Withdraw screen = new Withdraw(data);
             this.Hide();
             this.Parent.Controls.Add(screen);
         }
