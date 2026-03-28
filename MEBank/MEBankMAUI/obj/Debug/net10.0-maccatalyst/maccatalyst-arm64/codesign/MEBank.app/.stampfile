@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/vinzerious/Documents/GitHub/MEBank/MEBank/MEBankMAUI/obj/Debug/net10.0-maccatalyst/maccatalyst-arm64/Entitlements.xcent /Users/vinzerious/Documents/GitHub/MEBank/MEBank/MEBankMAUI/bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/MEBank.app

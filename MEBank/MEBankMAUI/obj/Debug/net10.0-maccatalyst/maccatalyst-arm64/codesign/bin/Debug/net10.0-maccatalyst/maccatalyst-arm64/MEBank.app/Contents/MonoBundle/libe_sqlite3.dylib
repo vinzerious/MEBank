@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - /Users/vinzerious/Documents/GitHub/MEBank/MEBank/MEBankMAUI/bin/Debug/net10.0-maccatalyst/maccatalyst-arm64/MEBank.app/Contents/MonoBundle/libe_sqlite3.dylib

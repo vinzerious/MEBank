@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MEBankMAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MEBankMAUI"
+    xmlns:behaviors="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration;assembly=Microsoft.Maui.Controls"
+    Title="MEBank">
+
+    <!-- Responsive Flyout Behavior - Desktop uses flyout, mobile hides it -->
+    <FlyoutBehavior>
+        <!-- Windows/MacCatalyst: Desktop with flyout -->
+        <OnPlatform 
+            x:TypeArguments="behaviors:FlyoutBehavior"
+            Platform="Windows" Value="Enabled" 
+            Platform="MacCatalyst" Value="FlyoutInline"
+            PlatformAndroid="Disabled"/>
+    </FlyoutBehavior>
+
+    <!-- Responsive Title Bar - Desktop only -->
+    <TitleBar>
+        <TitleBar.Behaviors>
+            <OnPlatform 
+                x:TypeArguments="behaviors:IPageState"
+                Platform="Windows,MacCatalyst" 
+                Value="{x:Null}" />
+        </TitleBar.Behaviors>
+        
+        <OnPlatform 
+            x:TypeArguments="Element"
+            Platform="Windows,MacCatalyst" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}" />
+        <OnPlatform 
+            x:TypeArguments="Element"
+            PlatformAndroid Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}" />
+        <OnPlatform 
+            x:TypeArguments="Element"
+            PlatformiOS Value="{StaticResource Primary}" IsVisible="False"/>
+    </TitleBar>
+
+    <!-- Responsive Bottom Tab Bar - Mobile only (Android/iOS) -->
+    <TabBar x:Name="mobileTabBar">
+        <!-- Home Page -->
+        <ShellContent 
+            ContentTemplate="{View}HomePage" Route="HomePage" Title="Home" IsVisible="{OnPlatform Android=True, iOS=True}" />
+        
+        <!-- Actions/Floating Button -->
+        <ShellContent 
+            ContentTemplate="{View}ActionsPage" Route="HomeActions" Title="" TitleVisibility="Collapsed"/>
+        
+        <!-- Accounts -->
+        <ShellContent 
+            ContentTemplate="{View}AccountPage" Route="Account" Title="Accounts" IsVisible="{OnPlatform Android=True, iOS=True}" />
+        
+        <!-- Transaction History -->
+        <ShellContent 
+            ContentTemplate="{View}TransactionsPage" Route="Transactions" Title="History" IsVisible="{OnPlatform Android=True, iOS=True}" />
+        
+        <!-- Profile -->
+        <ShellContent 
+            ContentTemplate="{View}ProfilePage" Route="Profile" Title="Profile" IsVisible="{OnPlatform Android=True, iOS=True}" />
+    </TabBar>
+
+</Shell>

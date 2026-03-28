@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      x:Class="MEBankMAUI.MainPage"
+      Shell.FlyoutBehavior="{OnPlatform Android=Disabled, iOS=Disabled, Windows=Flyover, MacCatalyst=Flyout}">
+
+    <!-- Home Page -->
+    <ShellContent ContentTemplate="{View}HomePage" Route="HomePage">
+        <Views:HomePage />
+    </ShellContent>
+
+    <!-- Banking Actions Section - Responsive Grid Layout -->
+    <ShellContent ContentTemplate="{View}ActionsPage" Route="HomeActions">
+        <Views:ActionsPage />
+    </ShellContent>
+
+    <!-- Account Summary Page - Responsive for mobile -->
+    <ShellContent ContentTemplate="{View}AccountPage" Route="Account">
+        <Views:AccountPage 
+            Shell.NavBarIsVisible="{OnPlatform Android=True, iOS=True}"
+            IsVisible="True" />
+        <Views:AccountPage.MobileOptions>
+            <x:Array Type="local:Microsoft.Maui.Controls.Compatibility.IOptionsProvider" xmlns:compatibility="clr-namespace:Microsoft.Maui.Controls.Compatibility;assembly=Microsoft.Maui.Controls">
+                <local:MobileFlyoutOptions>
+                    <local:MobileFlyoutOptions.MenuItems>
+                        <x:Array Type="MenuItem" xmlns:menuitem="clr-namespace:System.Windows.Input;assembly=System">
+                            <menuitem:MenuItem IconImage="home_icon" Command="{Binding Source={x:Type local:HomePage}, Path=NavigationCommand}" Text="Home"/>
+                            <menuitem:MenuItem IconImage="history_icon" Command="{Binding Source={x:Type local:TransactionsPage}, Path=NavigationCommand}" Text="History"/>
+                            <menuitem:MenuItem IconImage="accounts_icon" Command="{Binding Source={x:Type local:AccountPage}, Path=NavigationCommand}" Text="Accounts"/>
+                            <menuitem:MenuItem IconImage="profile_icon" Command="{Binding Source={x:Type local:ProfilePage}, Path=NavigationCommand}" Text="Profile"/>
+                        </x:Array>
+                    </local:MobileFlyoutOptions.MenuItems>
+                </local:MobileFlyoutOptions>
+            </x:Array>
+        </Views:AccountPage.MobileOptions>
+    </ShellContent>
+
+    <!-- Transactions History - Responsive for mobile -->
+    <ShellContent ContentTemplate="{View}TransactionsPage" Route="Transactions">
+        <Views:TransactionsPage 
+            Shell.NavBarIsVisible="{OnPlatform Android=True, iOS=True}"
+            IsVisible="True" />
+        <Views:TransactionsPage.MobileOptions>
+            <x:Array Type="local:Microsoft.Maui.Controls.Compatibility.IOptionsProvider" xmlns:compatibility="clr-namespace:Microsoft.Maui.Controls.Compatibility;assembly=Microsoft.Maui.Controls">
+                <local:MobileFlyoutOptions>
+                    <local:MobileFlyoutOptions.MenuItems>
+                        <x:Array Type="MenuItem" xmlns:menuitem="clr-namespace:System.Windows.Input;assembly=System">
+                            <menuitem:MenuItem IconImage="home_icon" Command="{Binding Source={x:Type local:HomePage}, Path=NavigationCommand}" Text="Home"/>
+                            <menuitem:MenuItem IconImage="history_icon" Command="{Binding Source={x:Type local:TransactionsPage}, Path=NavigationCommand}" Text="History"/>
+                            <menuitem:MenuItem IconImage="accounts_icon" Command="{Binding Source={x:Type local:AccountPage}, Path=NavigationCommand}" Text="Accounts"/>
+                            <menuitem:MenuItem IconImage="profile_icon" Command="{Binding Source={x:Type local:ProfilePage}, Path=NavigationCommand}" Text="Profile"/>
+                        </x:Array>
+                    </local:MobileFlyoutOptions.MenuItems>
+                </local:MobileFlyoutOptions>
+            </x:Array>
+        </Views:TransactionsPage.MobileOptions>
+    </ShellContent>
+
+    <!-- Profile Page - Responsive for mobile -->
+    <ShellContent ContentTemplate="{View}ProfilePage" Route="Profile">
+        <Views:ProfilePage 
+            Shell.NavBarIsVisible="{OnPlatform Android=True, iOS=True}"
+            IsVisible="True" />
+        <Views:ProfilePage.MobileOptions>
+            <x:Array Type="local:Microsoft.Maui.Controls.Compatibility.IOptionsProvider" xmlns:compatibility="clr-namespace:Microsoft.Maui.Controls.Compatibility;assembly=Microsoft.Maui.Controls">
+                <local:MobileFlyoutOptions>
+                    <local:MobileFlyoutOptions.MenuItems>
+                        <x:Array Type="MenuItem" xmlns:menuitem="clr-namespace:System.Windows.Input;assembly=System">
+                            <menuitem:MenuItem IconImage="home_icon" Command="{Binding Source={x:Type local:HomePage}, Path=NavigationCommand}" Text="Home"/>
+                            <menuitem:MenuItem IconImage="history_icon" Command="{Binding Source={x:Type local:TransactionsPage}, Path=NavigationCommand}" Text="History"/>
+                            <menuitem:MenuItem IconImage="accounts_icon" Command="{Binding Source={x:Type local:AccountPage}, Path=NavigationCommand}" Text="Accounts"/>
+                            <menuitem:MenuItem IconImage="profile_icon" Command="{Binding Source={x:Type local:ProfilePage}, Path=NavigationCommand}" Text="Profile"/>
+                        </x:Array>
+                    </local:MobileFlyoutOptions.MenuItems>
+                </local:MobileFlyoutOptions>
+            </x:Array>
+        </Views:ProfilePage.MobileOptions>
+    </ShellContent>
+
+</Shell>

@@ -63,18 +63,28 @@ namespace MEBank
                 List<SqlParameter> param = new List<SqlParameter>();
                 param.Add(new SqlParameter("@TransferFrom", SqlDbType.VarChar, 20, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, cmbAccountList.SelectedItem));
                 param.Add(new SqlParameter("@TransferTo", SqlDbType.VarChar, 20, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, txtTransferTo.Text));
-                param.Add(new SqlParameter("@Amount", SqlDbType.VarChar, 30, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, txtAmount.Text));
-                param.Add(new SqlParameter("@TransactionCreated", SqlDbType.VarChar, 20, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, data["@LoggedInID"]));
-
-                //List of return data
-                List<String> dataList = new List<string>();
+                param.Add(new SqlParameter("@Amount", SqlDbType.Money, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, Convert.ToDecimal(txtAmount.Text)));
+                param.Add(new SqlParameter("@TransactionCreated", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, CustomerID));
+                param.Add(new SqlParameter("@Result", SqlDbType.Int, ParameterDirection.Output, false, 0, 0, null, DataRowVersion.Current, null));
+                param.Add(new SqlParameter("@ErrorMsg", SqlDbType.VarChar, 1000, ParameterDirection.Output, false, 0, 0, null, DataRowVersion.Current, null));
 
                 Main m = new Main(); 
                 Dictionary<string, string> dataFromSP;
-                dataFromSP = m.ExecuteSP("SPA_transfer", param, "Transfer", "Check", dataList);
-                MessageBox.Show("Transferred successfully");
+                dataFromSP = m.ExecuteSP("SPA_transfer", param, "Transfer", "Check", new List<string>());
 
-                getBalance(cmbAccountList.SelectedItem.ToString());
+                if (dataFromSP["@Result"] == "-1")
+                {
+                    MessageBox.Show("Error: " + dataFromSP["@ErrorMsg"], "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtTransferTo.Clear();
+                    txtAmount.Clear();
+                    txtTransferTo.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Transferred successfully");
+
+                    getBalance(cmbAccountList.SelectedItem.ToString());
+                }
             }
             catch (Exception ex)
             {
