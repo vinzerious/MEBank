@@ -29,6 +29,7 @@ namespace MEBank
                 btnAccVerify.Visible = false;
                 cmbAccType.Items.Add("Admin");
                 cmbAccType.Items.Add("Bank");
+                cmbAccType.Items.Add("LoanApprover");
             }
             else if (AccountType.Equals("Bank"))
             {
@@ -100,7 +101,7 @@ namespace MEBank
                 param.Add(new SqlParameter("@usr", SqlDbType.VarChar, 20, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, txtUserID.Text));
                 param.Add(new SqlParameter("@pwd", SqlDbType.VarChar, 30, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, txtPassword.Text));
                 param.Add(new SqlParameter("@CustomerID", SqlDbType.VarChar, 20, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, txtCustomerID.Text));
-                param.Add(new SqlParameter("@AccountType", SqlDbType.VarChar, 10, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, cmbAccType.SelectedItem));
+                param.Add(new SqlParameter("@AccountType", SqlDbType.VarChar, 20, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, cmbAccType.SelectedItem));
                 param.Add(new SqlParameter("@AccountCreated", SqlDbType.VarChar, 20, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, data["@LoggedInID"]));
                 param.Add(new SqlParameter("@ID", SqlDbType.VarChar, 50, ParameterDirection.Output, false, 0, 0, null, DataRowVersion.Current, null));
 

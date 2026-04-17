@@ -30,6 +30,8 @@ namespace MEBank
             this.btnPendingApproval = new System.Windows.Forms.Button();
             this.btnRegisterBankOfficer = new System.Windows.Forms.Button();
             this.btnRegisterCustomer = new System.Windows.Forms.Button();
+            this.btnLoanRequest = new System.Windows.Forms.Button();
+            this.btnLoanApproval = new System.Windows.Forms.Button();
             this.pnlLogoutDivider = new System.Windows.Forms.Panel();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pnlContentHeader = new System.Windows.Forms.Panel();
@@ -60,6 +62,8 @@ namespace MEBank
             this.pnlSidebar.Controls.Add(this.btnPendingApproval);
             this.pnlSidebar.Controls.Add(this.btnRegisterBankOfficer);
             this.pnlSidebar.Controls.Add(this.btnRegisterCustomer);
+            this.pnlSidebar.Controls.Add(this.btnLoanRequest);
+            this.pnlSidebar.Controls.Add(this.btnLoanApproval);
             this.pnlSidebar.Controls.Add(this.pnlLogoutDivider);
             this.pnlSidebar.Controls.Add(this.btnLogout);
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
@@ -273,6 +277,44 @@ namespace MEBank
             this.btnRegisterCustomer.Visible = false;
             this.btnRegisterCustomer.Click += new System.EventHandler(this.fnRegisterCustomer);
 
+            // Loan Request (hidden by default, shown for Customer)
+            this.btnLoanRequest.BackColor = System.Drawing.Color.FromArgb(26, 26, 26);
+            this.btnLoanRequest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLoanRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoanRequest.FlatAppearance.BorderSize = 0;
+            this.btnLoanRequest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            this.btnLoanRequest.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoanRequest.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
+            this.btnLoanRequest.Location = new System.Drawing.Point(0, 474);
+            this.btnLoanRequest.Name = "btnLoanRequest";
+            this.btnLoanRequest.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnLoanRequest.Size = new System.Drawing.Size(240, 52);
+            this.btnLoanRequest.TabIndex = 15;
+            this.btnLoanRequest.Text = "Loan Request";
+            this.btnLoanRequest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLoanRequest.UseVisualStyleBackColor = false;
+            this.btnLoanRequest.Visible = false;
+            this.btnLoanRequest.Click += new System.EventHandler(this.fnLoanRequest);
+
+            // Loan Approval (hidden by default, shown for LoanApprover)
+            this.btnLoanApproval.BackColor = System.Drawing.Color.FromArgb(26, 26, 26);
+            this.btnLoanApproval.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLoanApproval.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoanApproval.FlatAppearance.BorderSize = 0;
+            this.btnLoanApproval.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(45, 45, 45);
+            this.btnLoanApproval.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoanApproval.ForeColor = System.Drawing.Color.FromArgb(220, 220, 220);
+            this.btnLoanApproval.Location = new System.Drawing.Point(0, 162);
+            this.btnLoanApproval.Name = "btnLoanApproval";
+            this.btnLoanApproval.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnLoanApproval.Size = new System.Drawing.Size(240, 52);
+            this.btnLoanApproval.TabIndex = 16;
+            this.btnLoanApproval.Text = "Loan Approvals";
+            this.btnLoanApproval.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLoanApproval.UseVisualStyleBackColor = false;
+            this.btnLoanApproval.Visible = false;
+            this.btnLoanApproval.Click += new System.EventHandler(this.fnLoanApproval);
+
             // Logout divider
             this.pnlLogoutDivider.BackColor = System.Drawing.Color.FromArgb(50, 50, 50);
             this.pnlLogoutDivider.Location = new System.Drawing.Point(16, 744);
@@ -393,6 +435,8 @@ namespace MEBank
         private System.Windows.Forms.Button btnRegisterCustomer;
         private System.Windows.Forms.Panel pnlLogoutDivider;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnLoanRequest;
+        private System.Windows.Forms.Button btnLoanApproval;
         private System.Windows.Forms.Panel pnlContentHeader;
         private System.Windows.Forms.Label lblDashboardTitle;
         private System.Windows.Forms.Label lblDashboardSubtitle;
