@@ -36,6 +36,8 @@ namespace MEBank
                 btnTransfer.Visible = true;
                 btnWithdraw.Visible = true;
                 btnDeposit.Visible = false;
+                btnParentalControl.Visible = true;
+                btnPendingApproval.Visible = true;
             }
 
         }
@@ -85,6 +87,20 @@ namespace MEBank
         private void fnWithdraw(object sender, EventArgs e)
         {
             Withdraw screen = new Withdraw(data);
+            this.Hide();
+            this.Parent.Controls.Add(screen);
+        }
+
+        private void fnParentalControl(object sender, EventArgs e)
+        {
+            ParentalControlSetup screen = new ParentalControlSetup(data);
+            this.Hide();
+            this.Parent.Controls.Add(screen);
+        }
+
+        private void fnPendingApproval(object sender, EventArgs e)
+        {
+            PendingApproval screen = new PendingApproval(data);
             this.Hide();
             this.Parent.Controls.Add(screen);
         }

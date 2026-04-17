@@ -33,6 +33,7 @@ namespace MEBank
 
             cmbAccountType.Items.Add("Saving");
             cmbAccountType.Items.Add("Fixed Deposit");
+            cmbAccountType.Items.Add("Kids");
 
             if (data["@AccountType"].Equals("Bank"))
             {
