@@ -127,13 +127,18 @@ namespace MEBank
                 param.Add(new SqlParameter("@IBANNo", SqlDbType.VarChar, 20, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, cmbAccountList.SelectedItem));
                 param.Add(new SqlParameter("@Amount", SqlDbType.VarChar, 30, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, txtAmount.Text));
                 param.Add(new SqlParameter("@TransactionCreated", SqlDbType.VarChar, 20, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, data["@LoggedInID"]));
+                param.Add(new SqlParameter("@Status", SqlDbType.VarChar, 20, ParameterDirection.Output, false, 0, 0, null, DataRowVersion.Current, ""));
 
-                //List of return data
                 List<String> dataList = new List<string>();
+                dataList.Add("@Status");
 
                 Dictionary<string, string> dataFromSP;
                 dataFromSP = m.ExecuteSP("SPA_Withdraw", param, "Withdraw", "Check", dataList);
-                MessageBox.Show("Withdrawn successfully");
+
+                if (dataFromSP.ContainsKey("@Status") && dataFromSP["@Status"] == "Pending")
+                    MessageBox.Show("Your withdrawal has been submitted for parent approval.", "Pending Approval", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Withdrawn successfully");
 
                 getBalance(cmbAccountList.SelectedItem.ToString());
             }

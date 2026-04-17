@@ -38,6 +38,8 @@
             this.btnRegisterCustomer = new System.Windows.Forms.Button();
             this.btnTransfer = new System.Windows.Forms.Button();
             this.btnWithdraw = new System.Windows.Forms.Button();
+            this.btnParentalControl = new System.Windows.Forms.Button();
+            this.btnPendingApproval = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblBrand
@@ -152,10 +154,36 @@
             this.btnWithdraw.Visible = false;
             this.btnWithdraw.Click += new System.EventHandler(this.fnWithdraw);
             //
+            // btnParentalControl
+            //
+            this.btnParentalControl.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnParentalControl.Location = new System.Drawing.Point(445, 391);
+            this.btnParentalControl.Name = "btnParentalControl";
+            this.btnParentalControl.Size = new System.Drawing.Size(195, 40);
+            this.btnParentalControl.TabIndex = 23;
+            this.btnParentalControl.Text = "Parental Controls";
+            this.btnParentalControl.UseVisualStyleBackColor = true;
+            this.btnParentalControl.Visible = false;
+            this.btnParentalControl.Click += new System.EventHandler(this.fnParentalControl);
+            //
+            // btnPendingApproval
+            //
+            this.btnPendingApproval.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPendingApproval.Location = new System.Drawing.Point(445, 461);
+            this.btnPendingApproval.Name = "btnPendingApproval";
+            this.btnPendingApproval.Size = new System.Drawing.Size(195, 40);
+            this.btnPendingApproval.TabIndex = 24;
+            this.btnPendingApproval.Text = "Pending Approvals";
+            this.btnPendingApproval.UseVisualStyleBackColor = true;
+            this.btnPendingApproval.Visible = false;
+            this.btnPendingApproval.Click += new System.EventHandler(this.fnPendingApproval);
+            //
             // Profile
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnPendingApproval);
+            this.Controls.Add(this.btnParentalControl);
             this.Controls.Add(this.btnWithdraw);
             this.Controls.Add(this.btnTransfer);
             this.Controls.Add(this.btnRegisterCustomer);
@@ -185,5 +213,7 @@
         private System.Windows.Forms.Button btnRegisterCustomer;
         private System.Windows.Forms.Button btnTransfer;
         private System.Windows.Forms.Button btnWithdraw;
+        private System.Windows.Forms.Button btnParentalControl;
+        private System.Windows.Forms.Button btnPendingApproval;
     }
 }

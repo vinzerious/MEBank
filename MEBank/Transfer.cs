@@ -65,14 +65,19 @@ namespace MEBank
                 param.Add(new SqlParameter("@TransferTo", SqlDbType.VarChar, 20, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, txtTransferTo.Text));
                 param.Add(new SqlParameter("@Amount", SqlDbType.VarChar, 30, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, txtAmount.Text));
                 param.Add(new SqlParameter("@TransactionCreated", SqlDbType.VarChar, 20, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, data["@LoggedInID"]));
+                param.Add(new SqlParameter("@Status", SqlDbType.VarChar, 20, ParameterDirection.Output, false, 0, 0, null, DataRowVersion.Current, ""));
 
-                //List of return data
                 List<String> dataList = new List<string>();
+                dataList.Add("@Status");
 
-                Main m = new Main(); 
+                Main m = new Main();
                 Dictionary<string, string> dataFromSP;
                 dataFromSP = m.ExecuteSP("SPA_transfer", param, "Transfer", "Check", dataList);
-                MessageBox.Show("Transferred successfully");
+
+                if (dataFromSP.ContainsKey("@Status") && dataFromSP["@Status"] == "Pending")
+                    MessageBox.Show("Your transfer has been submitted for parent approval.", "Pending Approval", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Transferred successfully");
 
                 getBalance(cmbAccountList.SelectedItem.ToString());
             }
