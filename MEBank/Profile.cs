@@ -38,6 +38,11 @@ namespace MEBank
                 btnDeposit.Visible = false;
                 btnParentalControl.Visible = true;
                 btnPendingApproval.Visible = true;
+                btnLoanRequest.Visible = true;
+            }
+            else if (AccountType.Equals("LoanApprover"))
+            {
+                btnLoanApproval.Visible = true;
             }
 
         }
@@ -101,6 +106,20 @@ namespace MEBank
         private void fnPendingApproval(object sender, EventArgs e)
         {
             PendingApproval screen = new PendingApproval(data);
+            this.Hide();
+            this.Parent.Controls.Add(screen);
+        }
+
+        private void fnLoanRequest(object sender, EventArgs e)
+        {
+            LoanRequest screen = new LoanRequest(data);
+            this.Hide();
+            this.Parent.Controls.Add(screen);
+        }
+
+        private void fnLoanApproval(object sender, EventArgs e)
+        {
+            LoanApproval screen = new LoanApproval(data);
             this.Hide();
             this.Parent.Controls.Add(screen);
         }

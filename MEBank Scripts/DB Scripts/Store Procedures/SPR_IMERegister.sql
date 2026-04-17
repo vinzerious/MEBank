@@ -13,7 +13,7 @@ CREATE PROCEDURE [dbo].[SPR_IMERegister]
 	@usr			VARCHAR (20),
 	@pwd			VARCHAR (30),
 	@CustomerID		VARCHAR (20),
-	@AccountType	VARCHAR (10),
+	@AccountType	VARCHAR (20),
 	@AccountCreated	VARCHAR (20),
 	@ID				VARCHAR (50) OUTPUT,
 	@Result			int OUTPUT,
